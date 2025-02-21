@@ -33,7 +33,6 @@ def predictor(image):
     inputs = processor(text=prompt, images=[image], return_tensors="pt")
     inputs = inputs.to(DEVICE)
 
-    print("MASUK [1]")
     generated_ids = model.generate(**inputs, max_new_tokens=500)
     generated_texts = processor.batch_decode(
         generated_ids,
@@ -41,21 +40,16 @@ def predictor(image):
     )
     output = generated_texts[0]
 
-    print("MASUK [2]")
-
-    print("MASUK [3]")
 
     assistant_part = output.split("Assistant: ")[1]        
-    print(assistant_part)
     dict_data = ast.literal_eval(assistant_part)
-    print(type(dict_data), print(dict_data))
-    print("MASUK [4]")
     return dict_data
 
 iface = gr.Interface(
     fn=predictor,
     inputs=gr.Image(type="pil"),
     outputs="text",
+    examples=["images/image1.jpg", "images/image2.jpg", "images/image3.jpg", "images/image4.jpg"]
 )
 
 iface.launch(server_name="0.0.0.0", server_port=8080)
