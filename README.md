@@ -36,8 +36,8 @@ features:
 
 splits:
   train:
-    num_examples: 330
-    num_bytes: 56056906.0
+    num_examples: 2121
+    num_bytes: 362979666.066
 ```
 
 ### Getting Started
@@ -99,10 +99,10 @@ dataset_info:
     sequence: image
   splits:
   - name: train
-    num_bytes: 56056906.0
-    num_examples: 330
-  download_size: 55646391
-  dataset_size: 56056906.0
+    num_bytes: 362979666.066
+    num_examples: 2121
+  download_size: 347735073
+  dataset_size: 362979666.066
 configs:
 - config_name: default
   data_files:
